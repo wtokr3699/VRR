@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+.hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            animation: fadeInUp 1s ease-out 0.8s both;
+            border: 1px solid rgba(255,255,255,0.3);
+        }<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -80,15 +89,18 @@
             animation: fadeInUp 1s ease-out 0.3s both;
         }
 
-        .hero-badge {
+        .hero-notice {
             display: inline-block;
-            background: rgba(255,255,255,0.15);
+            background: rgba(0,0,0,0.7);
             backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            animation: fadeInUp 1s ease-out 0.6s both;
-            border: 1px solid rgba(255,255,255,0.3);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            border: 1px solid rgba(255,255,255,0.2);
+            max-width: 600px;
         }
 
         @keyframes fadeInUp {
@@ -201,9 +213,27 @@
         .cta-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             text-align: center;
-            padding: 6rem 2rem;
+            padding: 6rem 2rem 4rem 2rem;
             position: relative;
             z-index: 3;
+        }
+
+        .copyright-notice {
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            z-index: 3;
+        }
+
+        .copyright-notice p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .cta-button {
@@ -286,6 +316,10 @@
         <div class="hero-content">
             <h1>K-POP VR 콘서트</h1>
             <p>나만의 무대, 어디서나 즐기는 초실감 공연</p>
+            <div class="hero-notice">
+                📌 본 페이지는 학습 목적으로 제작되었으며, 사용된 영상 및 음원의 저작권은 AMAZE/TOMORROW X TOGETHER에 있습니다.<br>
+                또한, 2026년 1월 29일까지만 운영된 후 폐쇄될 예정입니다.
+            </div>
             <div class="hero-badge">
                 🎭 4K 초고화질 360도 VR 체험
             </div>
@@ -374,14 +408,17 @@
         <h2 style="font-size: 3rem; margin-bottom: 1rem;">지금 바로 참여하세요!</h2>
         <p style="font-size: 1.3rem; margin-bottom: 3rem; opacity: 0.9;">"콘서트계의 혁명"이라 불리는 VR 공연으로 새로운 K-POP 경험을 시작하세요</p>
         
-        <a href="#" class="cta-button">티켓 예매하기</a>
-        <a href="#" class="cta-button" style="background: transparent; color: #fff; border: 2px solid #fff;">최신 일정 구독</a>
+        <a href="https://forms.gle/faKzT73HqAQeZhG88" target="_blank" class="cta-button" style="display: inline-block;">나의 VR 콘서트 취향 확인하기</a>
         
         <div style="margin-top: 3rem; font-size: 0.9rem; opacity: 0.8;">
             <p>메가박스 | PICO | AMAZE VR | 이프랜드</p>
             <p style="margin-top: 0.5rem;">다양한 플랫폼에서 만나보세요</p>
         </div>
     </section>
+
+    <footer class="copyright-notice">
+        <p>📌 본 페이지는 학습 목적으로 제작되었으며, 사용된 영상 및 음원의 저작권은 AMAZE/TOMORROW X TOGETHER에 있습니다.</p>
+    </footer>
 
     <script src="https://player.vimeo.com/api/player.js"></script>
     <script>
@@ -406,13 +443,6 @@
                     player.play();
                 });
             }, 500);
-        });
-
-        document.querySelectorAll('a[href="#"]').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                alert('예매 페이지로 이동합니다!\n(실제 구현 시 해당 페이지로 연결됩니다)');
-            });
         });
 
         const observerOptions = {
